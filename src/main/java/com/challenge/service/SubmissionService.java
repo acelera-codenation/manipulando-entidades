@@ -3,16 +3,20 @@ package com.challenge.service;
 import com.challenge.entity.Submission;
 import com.challenge.repository.SubmissionRepository;
 import com.challenge.service.interfaces.SubmissionServiceInterface;
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.util.List;
 
-@Component
+@Service
+@Transactional
 public class SubmissionService implements SubmissionServiceInterface {
 
     private final SubmissionRepository repository;
 
+    @Autowired
     public SubmissionService(SubmissionRepository repository) {
         this.repository = repository;
     }

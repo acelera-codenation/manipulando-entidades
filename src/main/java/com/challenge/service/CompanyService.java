@@ -3,16 +3,20 @@ package com.challenge.service;
 import com.challenge.entity.Company;
 import com.challenge.repository.CompanyRepository;
 import com.challenge.service.interfaces.CompanyServiceInterface;
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
-@Component
+@Service
+@Transactional
 public class CompanyService implements CompanyServiceInterface {
 
     private final CompanyRepository repository;
 
+    @Autowired
     public CompanyService(CompanyRepository repository) {
         this.repository = repository;
     }

@@ -3,15 +3,19 @@ package com.challenge.service;
 import com.challenge.entity.Challenge;
 import com.challenge.repository.ChallengeRepository;
 import com.challenge.service.interfaces.ChallengeServiceInterface;
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-@Component
+@Service
+@Transactional
 public class ChallengeService implements ChallengeServiceInterface {
 
     private final ChallengeRepository repository;
 
+    @Autowired
     public ChallengeService(ChallengeRepository repository) {
         this.repository = repository;
     }

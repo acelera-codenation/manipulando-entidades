@@ -4,16 +4,20 @@ import com.challenge.entity.Candidate;
 import com.challenge.entity.CandidateId;
 import com.challenge.repository.CandidateRepository;
 import com.challenge.service.interfaces.CandidateServiceInterface;
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
-@Component
+@Service
+@Transactional
 public class CandidateService implements CandidateServiceInterface {
 
     private final CandidateRepository repository;
 
+    @Autowired
     public CandidateService(CandidateRepository repository) {
         this.repository = repository;
     }
@@ -31,7 +35,7 @@ public class CandidateService implements CandidateServiceInterface {
 
     @Override
     public List<Candidate> findByCompanyId(Long companyId) {
-        return null;//repository.findByCompanyId(companyId);
+        return repository.findByCompanyId(companyId);
     }
 
     @Override
