@@ -20,14 +20,14 @@ import java.time.LocalDateTime;
 @EntityListeners(AuditingEntityListener.class)
 public class Candidate {
 
-	@EmbeddedId
-	private CandidateId id;
+    @EmbeddedId
+    private CandidateId id;
 
-	@Column
-	@NotNull
-	private Integer status;
+    @Column
+    @NotNull
+    private Integer status;
 
-	@CreatedDate
-	private LocalDateTime createdAt;
+    @CreatedDate
+    private LocalDateTime createdAt;
 
 }

@@ -41,5 +41,4 @@ public class Acceleration {
 
     @CreatedDate
     private LocalDateTime createdAt;
-
 }
