@@ -11,13 +11,9 @@ import java.util.List;
 @Repository
 public interface UserRepository extends CrudRepository<User, Long> {
 
-    @Query("FROM User user JOIN user.candidates candidate " +
-            "WHERE candidate.id.acceleration.name = :accelerationName")
-    List<User> findByAccelerationName(@Param("accelerationName") String accelerationName);
+    List<User> findByCandidatesIdAccelerationName(String accelerationName);
 
-    @Query("FROM User user JOIN user.candidates candidate " +
-            "WHERE candidate.id.company.id = :companyId ")
-    List<User> findByCompanyId(@Param("companyId") Long companyId);
+    List<User> findByCandidatesIdCompanyId(@Param("companyId") Long companyId);
 
 
 }

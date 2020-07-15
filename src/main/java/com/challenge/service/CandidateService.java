@@ -24,23 +24,23 @@ public class CandidateService implements CandidateServiceInterface {
 
     @Override
     public Optional<Candidate> findById(CandidateId id) {
-        return repository.findByUserIdAndCompanyIdAndAccelarationId(
+        return repository.findByIdUserIdAndIdCompanyIdAndIdAccelerationId(
                 id.getUser().getId(), id.getCompany().getId(), id.getAcceleration().getId());
     }
 
     @Override
     public Optional<Candidate> findById(Long userId, Long companyId, Long accelerationId) {
-        return repository.findByUserIdAndCompanyIdAndAccelarationId(userId, companyId, accelerationId);
+        return repository.findByIdUserIdAndIdCompanyIdAndIdAccelerationId(userId, companyId, accelerationId);
     }
 
     @Override
     public List<Candidate> findByCompanyId(Long companyId) {
-        return repository.findByCompanyId(companyId);
+        return repository.findByIdCompanyId(companyId);
     }
 
     @Override
     public List<Candidate> findByAccelerationId(Long accelerationId) {
-        return repository.findByAccelerationId(accelerationId);
+        return repository.findByIdAccelerationId(accelerationId);
     }
 
     @Override

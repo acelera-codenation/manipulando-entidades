@@ -11,15 +11,6 @@ import java.util.List;
 @Repository
 public interface CompanyRepository extends CrudRepository<Company, Long> {
 
-    @Query("SELECT company FROM Company company " +
-            "JOIN company.candidates candidate " +
-            "WHERE candidate.id.user.id = :userId")
-    List<Company> findByIdUserId(@Param("userId") Long userId);
-
-    @Query("SELECT distinct company FROM Company company " +
-            "JOIN company.candidates candidate " +
-            "WHERE candidate.id.acceleration.id = :accelerationId")
-    List<Company> findByAccelerationId(@Param("accelerationId") Long accelerationId);
-
-
+    List<Company> findByCandidatesIdUserId(Long userId);
+    List<Company> findDistinctByCandidatesIdAccelerationId(Long accelerationId);
 }

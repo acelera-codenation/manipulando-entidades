@@ -16,10 +16,6 @@ public interface AccelerationRepository extends CrudRepository<Acceleration, Lon
 
     Optional<Acceleration> findByName(String name);
 
-    @Query("FROM Acceleration acceleration " +
-            "JOIN acceleration.candidates candidate " +
-            "WHERE candidate.id.company.id = :companyId")
-    List<Acceleration> findByCompanyId(@Param("companyId") Long companyId);
-
+    List<Acceleration> findByCandidatesIdCompanyId(Long companyId);
 
 }

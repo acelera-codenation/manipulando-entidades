@@ -13,20 +13,12 @@ import java.util.Optional;
 @Repository
 public interface CandidateRepository extends CrudRepository<Candidate, CandidateId> {
 
-    @Query("FROM Candidate candidate " +
-            "WHERE candidate.id.user.id = :userId " +
-            "AND candidate.id.company.id = :companyId " +
-            "AND candidate.id.acceleration.id = :accelerationId")
-    Optional<Candidate> findByUserIdAndCompanyIdAndAccelarationId(
-            @Param("userId") Long userId,
-            @Param("companyId") Long companyId,
-            @Param("accelerationId") Long accelerationId);
+    Optional<Candidate> findByIdUserIdAndIdCompanyIdAndIdAccelerationId(
+            Long userId,
+            Long companyId,
+            Long accelerationId);
 
-    @Query("FROM Candidate candidate " +
-            "WHERE candidate.id.company.id = :companyId")
-    List<Candidate> findByCompanyId(Long companyId);
+    List<Candidate> findByIdCompanyId(Long companyId);
 
-    @Query("FROM Candidate candidate " +
-            "WHERE candidate.id.acceleration.id = :accelerationId")
-    List<Candidate> findByAccelerationId(Long accelerationId);
+    List<Candidate> findByIdAccelerationId(Long accelerationId);
 }
